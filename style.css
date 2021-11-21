@@ -1,0 +1,164 @@
+*, *:after, *:before{
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	border: 0;
+}
+
+.html-tree-edu-app, body{
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+}
+
+.html-tree-edu-app{
+	text-align: left;
+	position: fixed;
+	z-index: 9999999999999;
+}
+
+.html-tree-edu-app .tree-container{
+	position: absolute;
+	display: grid;
+	grid-auto-flow: column;
+	grid-template-columns: 100px 1fr;
+	width: 65%;
+	height: 80%;
+	left: calc(65% - 50%);
+	margin: 3rem auto;
+	background: #172b4ded;
+	overflow: overlay;
+	border-radius: 5px;
+	z-index: 999999;
+}
+
+.init-btn{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	background-color: #172b4d;
+	border-radius: 50%;
+	text-align: center;
+	color: #fafafa;
+	line-height: 50px;
+	cursor: pointer;
+	font-size: 18px;
+	box-shadow: 1px 0px 6px 0px rgb(0 0 0 / 92%);
+}
+
+.init-btn:active{
+	box-shadow: none;
+}
+
+.html-tree-edu-app.hide, .init-btn.hide{
+	display: none;
+}
+
+/*make the style for class*/
+.html-tree-edu-app.overlay:before{
+	width:100vw;
+	height: 100vh;
+	content:'';
+	background-color: #4e97c266;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.html-tree-edu-app .close-btn{
+	position: absolute;
+	right: 2rem;
+	top: 2rem;
+	color: #b4f9f3;
+	font-size: 24px;
+	text-align: center;
+	cursor: pointer;
+	padding: 0.2rem 1rem;
+	box-shadow: -2px -2px 5px 0px rgb(113 171 206 / 55%), 
+				3px 3px 5px 0px rgb(1 3 8 / 95%);
+	z-index: 999999;
+}
+
+.html-tree-edu-app .close-btn:active{
+	box-shadow: inset 2px 2px 5px 0px rgb(1 3 8 / 95%), 
+				inset -1px -1px 3px 0px rgb(113 171 206 / 55%);
+}
+
+.html-tree-edu-app .node-container{
+	flex: 1;
+	padding: 2rem 1rem;
+	margin: 0 2rem;
+}
+
+.html-tree-edu-app .side_links{
+	height: 100%;
+	padding: 2rem 1.5rem;
+	border-right: 1px solid rgba(0,0,0, 0.3);
+	box-shadow: 0px -3px 1px #b1b2b3e3;
+}
+
+.html-tree-edu-app .side_links > *{
+	text-align: center;
+	margin-bottom: 2rem;
+	padding: 0.5rem 0.5rem;
+	transition: all 0.2s ease;
+	box-shadow: -2px -2px 5px 0px rgb(170 221 251 / 60%), 
+				3px 3px 6px 0px rgb(1 3 8 / 66%);
+}
+
+.html-tree-edu-app .side-btn{
+	color: #b4f9f3;
+	display: block;
+	cursor: pointer;
+}
+
+.html-tree-edu-app h1{
+	display: none;
+}
+
+.html-tree-edu-app .active{
+	box-shadow: inset 1px 1px 3px 0px rgb(1 3 8 / 66%), 
+				inset -2px -2px 4px 0px rgb(170 221 251 / 60%);
+}
+
+.html-tree-edu-app .node{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	color: #fafafa;
+	padding: 1rem 0 0 2rem;
+	font-size: 20px;
+	border-left: 1px solid #fafafa;	
+}
+
+.html-tree-edu-app .node:after{
+	content:'';
+	position: absolute;
+	top: 1.6rem;
+	left: 0px;
+	border-top: 1px solid #fff;
+	border-left: 1.5rem solid #fff;
+	transition: all 0.5s ease;
+}
+
+.html-tree-edu-app .hasChild:before{
+	content:'';
+	align-self: start;
+	border-top: 5px solid #fff;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	transition: all 0.5s ease;
+}
+
+.html-tree-edu-app .hasChildCollapsed:before{
+	border-top: none;
+	border-bottom: 5px solid #fff;
+}
+
+.html-tree-edu-app .hasChildCollapsed > .node{
+	display: none;
+	width: 0;
+	transition: opacity 0.5s ease .5s, width 0.5s ease .5s;
+}
